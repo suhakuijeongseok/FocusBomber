@@ -306,7 +306,7 @@
     nukeFlash.className = "fb-nuke-flash";
     const nuke = document.createElement("div");
     nuke.className = "fb-nuke";
-    nuke.innerHTML = '<i class="fb-nuke-ring"></i><i class="fb-nuke-core"></i><i class="fb-nuke-column"></i><i class="fb-nuke-cap"></i><i class="fb-nuke-debris"></i>';
+    nuke.innerHTML = '<i class="fb-nuke-ground"></i><i class="fb-nuke-ring"></i><i class="fb-nuke-core"></i><i class="fb-nuke-column"></i><i class="fb-nuke-cap"></i><i class="fb-nuke-cloud fb-nuke-cloud-a"></i><i class="fb-nuke-cloud fb-nuke-cloud-b"></i><i class="fb-nuke-cloud fb-nuke-cloud-c"></i><i class="fb-nuke-debris"></i><i class="fb-nuke-sparks"></i>';
     stage.append(flash, nukeFlash, nuke);
     const cleanupDuration = clearAllInteractiveElements();
     setTimeout(() => {
