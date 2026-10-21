@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <style>
+      * { box-sizing:border-box; }
+      body { position:relative; width:1400px; height:560px; margin:0; overflow:hidden; color:#fff4d6; background:#111419; font-family:Inter,Pretendard,system-ui,sans-serif; }
+      body::before { content:""; position:absolute; inset:0; background:linear-gradient(115deg,#111419 0 52%,#2d200b 100%); }
+      body::after { content:""; position:absolute; inset:0; opacity:.18; background:repeating-linear-gradient(0deg,transparent 0 15px,#000 15px 19px); }
+      .flare { position:absolute; right:-80px; top:-220px; width:760px; height:760px; border:42px solid #ffb00018; border-radius:50%; box-shadow:0 0 0 62px #ffb0000b,0 0 130px #ff8a001a; }
+      main { position:relative; z-index:2; display:grid; grid-template-columns:190px 1fr 540px; align-items:center; gap:34px; width:1240px; height:100%; margin:auto; }
+      .icon { width:170px; height:170px; image-rendering:pixelated; filter:drop-shadow(14px 16px 0 #0008); }
+      .eyebrow { color:#ffcb57; font:900 17px ui-monospace,Consolas,monospace; letter-spacing:.18em; }
+      h1 { margin:10px 0 12px; color:#ffb312; font-size:67px; line-height:1; letter-spacing:-2.5px; text-shadow:5px 5px 0 #713b00; }
+      .copy p { margin:0; color:#ded2c4; font-size:23px; line-height:1.5; }
+      .formation { position:relative; height:400px; }
+      .plane { position:absolute; width:190px; transform:rotate(58deg); image-rendering:pixelated; filter:drop-shadow(12px 15px 0 #0007); }
+      .p1 { left:0; top:245px; width:180px; }.p2 { left:160px; top:145px; width:215px; }.p3 { left:360px; top:28px; width:170px; }
+      .burst { position:absolute; width:16px; height:16px; background:#fff7a7; box-shadow:-18px 0 #ffca2d,18px 0 #ffca2d,0 -18px #ff6a22,0 18px #ff6a22,-18px -18px #f24420,18px 18px #f24420,18px -18px #f24420,-18px 18px #f24420; }
+      .x1 { left:134px; top:340px; }.x2 { left:325px; top:225px; }.x3 { left:495px; top:118px; }
+      .bomb { position:absolute; width:13px; height:20px; background:#20242b; border:3px solid #090a0c; box-shadow:inset 3px 0 #67717d; clip-path:polygon(25% 0,75% 0,75% 13%,100% 13%,100% 75%,75% 75%,75% 100%,25% 100%,25% 75%,0 75%,0 13%,25% 13%); }
+      .b1 { left:236px; top:316px; }.b2 { left:420px; top:202px; }
+    </style>
+  </head>
+  <body>
+    <div class="flare"></div>
+    <main>
+      <img class="icon" src="../assets/icons/icon-128.png" alt="">
+      <section class="copy"><div class="eyebrow">FOCUS TIMER · PIXEL AIR RAID</div><h1>Focus Bomber</h1><p>사이트별 시간을 정하고,<br>집중이 끝나면 픽셀 편대가 출동합니다.</p></section>
+      <section class="formation">
+        <img class="plane p1" src="../assets/aircraft-fighter.png" alt=""><img class="plane p2" src="../assets/aircraft-fighter.png" alt=""><img class="plane p3" src="../assets/aircraft-fighter.png" alt="">
+        <i class="bomb b1"></i><i class="bomb b2"></i><i class="burst x1"></i><i class="burst x2"></i><i class="burst x3"></i>
+      </section>
+    </main>
+  </body>
+</html>
