@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
   "name": "Focus Bomber",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "description": "사이트별 이용 시간을 제한하고 초과하면 페이지를 폭격 애니메이션으로 정리합니다.",
-  "permissions": ["storage", "offscreen", "scripting"],
-  "host_permissions": ["<all_urls>"],
+  "permissions": ["storage", "offscreen", "scripting", "activeTab"],
+  "optional_host_permissions": ["http://*/*", "https://*/*"],
   "icons": {
     "16": "assets/icons/icon-16.png",
     "32": "assets/icons/icon-32.png",
@@ -22,14 +22,6 @@
   "background": {
     "service_worker": "background.js"
   },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"],
-      "css": ["content.css"],
-      "run_at": "document_idle"
-    }
-  ],
   "web_accessible_resources": [
     {
       "resources": ["assets/aircraft-fighter.png"],

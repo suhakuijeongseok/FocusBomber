@@ -17,6 +17,8 @@ input:focus { border-color: #ffb000; box-shadow: 0 0 0 3px #ffb00022; }
 button { border: 0; cursor: pointer; font: inherit; }
 .primary { padding: 11px; border-radius: 9px; font-weight: 900; color: #211607; background: #ffb000; }
 .primary:hover { background: #ffc038; }
+.permission-status { display:none; color:#ff9d82; font-size:11px; line-height:1.45; }
+.permission-status.visible { display:block; }
 section { margin-top: 18px; }
 .section-title { display:flex; align-items:center; justify-content:space-between; margin-bottom:9px; }
 h2 { font-size: 13px; }
@@ -31,6 +33,7 @@ h2 { font-size: 13px; }
 .delete:hover { color:#fff; background:#a53a2b; }
 .test { padding:5px 7px; border-radius:7px; color:#ffbd25; background:#3a2d17; font-size:10px; font-weight:800; }
 .test:hover { color:#1d1306; background:#ffb000; }
+.test.permission { color:#15120f; background:#ffb000; }
 .switch { position:relative; display:block; width:34px; height:20px; }
 .switch input { position:absolute; opacity:0; }
 .switch span { position:absolute; inset:0; border-radius:20px; background:#4b4139; transition:.2s; }

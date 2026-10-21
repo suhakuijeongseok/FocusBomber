@@ -9,6 +9,36 @@ const today = () => {
 };
 const usageKey = (ruleId) => `${today()}:${ruleId}`;
 
+function permissionOrigins(pattern) {
+  const isLocalAddress = pattern === "localhost"
+    || /^\d+(?:\.\d+){3}$/.test(pattern)
+    || /^\[[0-9a-f:]+\]$/i.test(pattern);
+  const wildcard = isLocalAddress ? pattern : `*.${pattern}`;
+  return [`http://${wildcard}/*`, `https://${wildcard}/*`];
+}
+
+async function hasSitePermission(pattern) {
+  return chrome.permissions.contains({ origins: permissionOrigins(pattern) });
+}
+
+async function requestSitePermission(pattern) {
+  return chrome.permissions.request({ origins: permissionOrigins(pattern) });
+}
+
+async function removeSitePermission(pattern) {
+  return chrome.permissions.remove({ origins: permissionOrigins(pattern) });
+}
+
+function showPermissionStatus(message = "") {
+  const status = $("#permission-status");
+  status.textContent = message;
+  status.classList.toggle("visible", Boolean(message));
+}
+
+async function syncAuthorizedSites() {
+  await chrome.runtime.sendMessage({ type: "focus-bomber-sync-sites" });
+}
+
 function normalizeSite(value) {
   const trimmed = value.trim().toLowerCase();
   if (!trimmed) return "";
@@ -65,16 +95,45 @@ async function render() {
     const enabled = item.querySelector(".enabled");
     enabled.checked = rule.enabled;
     enabled.addEventListener("change", async () => {
+      if (enabled.checked && !(await requestSitePermission(rule.pattern))) {
+        enabled.checked = false;
+        showPermissionStatus(`${rule.pattern} 접근 권한이 허용되지 않았습니다.`);
+        return;
+      }
       rule.enabled = enabled.checked;
       await chrome.storage.local.set({ [RULES_KEY]: state[RULES_KEY] });
+      if (!enabled.checked) await removeSitePermission(rule.pattern);
+      await syncAuthorizedSites();
+      if (enabled.checked) await ensureCurrentTabIsRunning();
     });
-    item.querySelector(".test").addEventListener("click", async () => {
+    const testButton = item.querySelector(".test");
+    const permitted = await hasSitePermission(rule.pattern);
+    if (!permitted) {
+      testButton.textContent = "접근 허용";
+      testButton.title = `${rule.pattern}에서 타이머를 실행하도록 허용`;
+      testButton.classList.add("permission");
+    }
+    testButton.addEventListener("click", async () => {
+      if (!permitted) {
+        if (!(await requestSitePermission(rule.pattern))) {
+          showPermissionStatus(`${rule.pattern} 접근 권한이 허용되지 않았습니다.`);
+          return;
+        }
+        rule.enabled = true;
+        await chrome.storage.local.set({ [RULES_KEY]: state[RULES_KEY] });
+        await syncAuthorizedSites();
+        await ensureCurrentTabIsRunning();
+        render();
+        return;
+      }
       const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
       if (tab?.id) chrome.tabs.sendMessage(tab.id, { type: "focus-bomber-test", rule }).catch(() => {});
       window.close();
     });
     item.querySelector(".delete").addEventListener("click", async () => {
       await chrome.storage.local.set({ [RULES_KEY]: state[RULES_KEY].filter((candidate) => candidate.id !== rule.id) });
+      await removeSitePermission(rule.pattern);
+      await syncAuthorizedSites();
       render();
     });
     root.append(item);
@@ -87,6 +146,12 @@ $("#rule-form").addEventListener("submit", async (event) => {
   const minutes = Number($("#minutes").value);
   if (!pattern || !Number.isFinite(minutes) || minutes < 1) return;
 
+  showPermissionStatus();
+  if (!(await requestSitePermission(pattern))) {
+    showPermissionStatus(`${pattern}에서 타이머와 폭격 효과를 실행하려면 사이트 접근 권한이 필요합니다.`);
+    return;
+  }
+
   const state = await loadState();
   const existing = state[RULES_KEY].find((rule) => rule.pattern === pattern);
   if (existing) {
@@ -97,6 +162,7 @@ $("#rule-form").addEventListener("submit", async (event) => {
     state[RULES_KEY].push({ id: crypto.randomUUID(), pattern, limitSeconds: Math.round(minutes * 60), enabled: true });
   }
   await chrome.storage.local.set({ [RULES_KEY]: state[RULES_KEY], [BLOCKED_KEY]: state[BLOCKED_KEY] });
+  await syncAuthorizedSites();
   await ensureCurrentTabIsRunning();
   $("#site").value = pattern;
   render();
