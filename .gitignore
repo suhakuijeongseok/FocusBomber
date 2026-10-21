@@ -7,6 +7,11 @@ assets/aircraft-sprites/
 
 # Local review artifact
 aircraft-contact-sheet.png
+bomb-icon-pixel-art-illustration-8bit_749131-10.avif
+
+# Private license evidence and correspondence
+license/
+*.eml
 
 # OS metadata
 Thumbs.db

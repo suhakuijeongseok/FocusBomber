@@ -51,16 +51,16 @@
 
 - Aircraft: `scottishperson-sound-effect-ww2-fighter-plane-takeoff-333260.mp3`
 - Explosions: `dragon-studio-explosion-sound-effect-425455.mp3`
-- Explosions: `dragon-studio-loud-explosion-425457.mp3`
-- Final explosion: `soundreality-explosion-fx-343683.mp3`
+- Explosions / final explosion: `dragon-studio-loud-explosion-425457.mp3`
 
 효과음 출처 표기:
 
-- [무료 효과음 시작가 kr.pikbest.com](https://kr.pikbest.com/free-sound-effects/%ED%8F%AD%ED%83%84.html)
-- [무료 폭탄 효과음 시작가 kr.pikbest.com](https://kr.pikbest.com/sound-effects/deafening-war-bomb-explosion_226020.html)
-- [무료 폭탄 효과음 시작가 kr.pikbest.com](https://kr.pikbest.com/sound-effects/terrorist-battle-bomb-explosion_226021.html)
+- [Sound Effect - WW2 Fighter Plane Takeoff — ScottishPerson / Pixabay](https://pixabay.com/sound-effects/film-special-effects-sound-effect-ww2-fighter-plane-takeoff-333260/)
+- [Explosion Sound Effect — DRAGON-STUDIO / Pixabay](https://pixabay.com/sound-effects/film-special-effects-explosion-sound-effect-425455/)
+- [Loud Explosion — DRAGON-STUDIO / Pixabay](https://pixabay.com/sound-effects/film-special-effects-loud-explosion-425457/)
+- [Pixabay Content License](https://pixabay.com/service/license-summary/)
 
-공개 배포 전 각 음원의 원본 라이선스와 재배포 조건도 다시 확인하세요.
+세 음원은 Pixabay Content License에 따라 확장 프로그램의 시청각 효과 구성요소로 사용합니다. 음원 파일을 독립 상품이나 원본 상태로 재배포하지 않습니다.
 
 ## 개인정보 보호
 

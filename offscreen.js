@@ -2,8 +2,7 @@ const AUDIO = {
   engine: "sound_effect/scottishperson-sound-effect-ww2-fighter-plane-takeoff-333260.mp3",
   explosions: [
     "sound_effect/dragon-studio-explosion-sound-effect-425455.mp3",
-    "sound_effect/dragon-studio-loud-explosion-425457.mp3",
-    "sound_effect/soundreality-explosion-fx-343683.mp3"
+    "sound_effect/dragon-studio-loud-explosion-425457.mp3"
   ]
 };
 
@@ -48,7 +47,7 @@ function playExplosion(tabId, final = false) {
   if (!final && now - session.lastImpact < 115) return;
   session.lastImpact = now;
   sessions.set(tabId, session);
-  const path = final ? AUDIO.explosions[2] : AUDIO.explosions[explosionIndex++ % 2];
+  const path = final ? AUDIO.explosions[1] : AUDIO.explosions[explosionIndex++ % AUDIO.explosions.length];
   const audio = pooledAudio(path);
   audio.volume = final ? .58 : .22 + Math.random() * .13;
   audio.playbackRate = final ? .92 : .93 + Math.random() * .16;

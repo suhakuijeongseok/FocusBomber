@@ -25,9 +25,10 @@ Focus Bomber는 사용자가 직접 선택한 웹사이트의 하루 이용시�
 
 효과음 출처:
 
-- [무료 효과음 시작가 kr.pikbest.com](https://kr.pikbest.com/free-sound-effects/%ED%8F%AD%ED%83%84.html)
-- [무료 폭탄 효과음 시작가 kr.pikbest.com](https://kr.pikbest.com/sound-effects/deafening-war-bomb-explosion_226020.html)
-- [무료 폭탄 효과음 시작가 kr.pikbest.com](https://kr.pikbest.com/sound-effects/terrorist-battle-bomb-explosion_226021.html)
+- [Sound Effect - WW2 Fighter Plane Takeoff — ScottishPerson / Pixabay](https://pixabay.com/sound-effects/film-special-effects-sound-effect-ww2-fighter-plane-takeoff-333260/)
+- [Explosion Sound Effect — DRAGON-STUDIO / Pixabay](https://pixabay.com/sound-effects/film-special-effects-explosion-sound-effect-425455/)
+- [Loud Explosion — DRAGON-STUDIO / Pixabay](https://pixabay.com/sound-effects/film-special-effects-loud-explosion-425457/)
+- [Pixabay Content License](https://pixabay.com/service/license-summary/)
 
 ## 단일 목적
 
@@ -68,6 +69,6 @@ Focus Bomber는 사용자가 직접 선택한 웹사이트의 하루 이용시�
 
 - 지원 이메일과 개인정보처리방침의 문의 수단 입력
 - 스토어 아이콘 및 실제 작동 화면 스크린샷 업로드
-- 모든 효과음의 라이선스와 확장 프로그램 내 재배포 허용 여부 확인
+- 효과음 라이선스 증빙을 로컬에 보관
 - 항공기 스프라이트 제작자에게 사용 사실 통지
 - 자동 탭 종료와 미저장 데이터 유실 가능성을 상세 설명에 유지

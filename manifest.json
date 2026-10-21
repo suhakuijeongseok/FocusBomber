@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Focus Bomber",
-  "version": "1.11.1",
+  "version": "1.11.2",
   "description": "사이트별 이용 시간을 제한하고 초과하면 페이지를 폭격 애니메이션으로 정리합니다.",
   "permissions": ["storage", "offscreen", "scripting"],
   "host_permissions": ["<all_urls>"],
