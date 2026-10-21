@@ -12,6 +12,7 @@
   const hostnameMatches = (host, pattern) => host === pattern || host.endsWith(`.${pattern}`);
   const keyFor = (id) => `${today()}:${id}`;
   const isActive = () => document.visibilityState === "visible" && document.hasFocus();
+  const sendAudio = (action) => chrome.runtime.sendMessage({ type: "focus-bomber-audio", action }).catch(() => {});
   let rule = null;
   let usedSeconds = 0;
   let tickCount = 0;
@@ -78,7 +79,10 @@
     }
   }, 1000);
 
-  addEventListener("pagehide", persistUsage);
+  addEventListener("pagehide", () => {
+    persistUsage();
+    if (attacked) sendAudio("stop");
+  });
   addEventListener("blur", persistUsage);
   addEventListener("pageshow", (event) => {
     if (!event.persisted) return;
@@ -188,6 +192,7 @@
   }
 
   function pixelExplosion(x, y) {
+    sendAudio("impact");
     const burst = document.createElement("i");
     burst.className = "fb-pixel-burst";
     burst.style.left = `${x}px`;
@@ -264,6 +269,7 @@
   }
 
   function clearAndClose(stage) {
+    sendAudio("complete");
     document.documentElement.classList.add("fb-page-cleared");
     const flash = document.createElement("div");
     flash.className = "fb-screen-flash";
@@ -287,6 +293,7 @@
     attacked = true;
     restoreStaleAttackState();
     markBlocked();
+    sendAudio("start");
     hud?.remove();
     wrapText();
     const stage = document.createElement("div");

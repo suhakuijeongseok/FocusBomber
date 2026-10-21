@@ -40,3 +40,14 @@
 - 제공된 연락처: `prinz_eugn@hotmail.com`
 
 폭발·폭탄·파편 효과는 기존과 동일하게 CSS와 DOM으로 자체 제작되었습니다.
+
+## 사운드 크레딧
+
+사용자가 제공한 다음 효과음을 확장 프로그램의 오프스크린 오디오 문서에서 재생합니다.
+
+- Aircraft: `scottishperson-sound-effect-ww2-fighter-plane-takeoff-333260.mp3`
+- Explosions: `dragon-studio-explosion-sound-effect-425455.mp3`
+- Explosions: `dragon-studio-loud-explosion-425457.mp3`
+- Final explosion: `soundreality-explosion-fx-343683.mp3`
+
+공개 배포 전 각 음원의 원본 라이선스와 필요한 저작자 표시 조건을 다시 확인하세요.
