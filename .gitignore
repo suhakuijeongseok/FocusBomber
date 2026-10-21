@@ -1,0 +1,13 @@
+# Local release archives (publish separately as GitHub Releases when needed)
+releases/
+
+# Supplied source-art archive and extracted reference pack
+AircraftSprites_zip.*
+assets/aircraft-sprites/
+
+# Local review artifact
+aircraft-contact-sheet.png
+
+# OS metadata
+Thumbs.db
+.DS_Store

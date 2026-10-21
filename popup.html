@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Focus Bomber</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="logo">✈</div>
+        <div><h1>Focus Bomber</h1><p>시간을 넘기면 페이지가 폭격됩니다.</p></div>
+      </header>
+
+      <form id="rule-form">
+        <label>사이트 주소
+          <input id="site" type="text" placeholder="youtube.com" required autocomplete="off">
+        </label>
+        <label>하루 제한시간
+          <div class="time-row">
+            <input id="minutes" type="number" min="1" max="1440" value="30" required>
+            <span>분</span>
+          </div>
+        </label>
+        <button class="primary" type="submit">폭격 제한 설정</button>
+      </form>
+
+      <section>
+        <div class="section-title"><h2>설정된 사이트</h2><button id="reset-all" class="text-button">오늘 기록 초기화</button></div>
+        <div id="rules" class="rules"></div>
+      </section>
+    </main>
+    <template id="rule-template">
+      <article class="rule">
+        <div class="rule-main"><strong class="hostname"></strong><span class="usage"></span></div>
+        <button class="test" title="현재 탭에서 시험 폭격 후 탭 닫기">시험·닫기</button>
+        <label class="switch"><input class="enabled" type="checkbox"><span></span></label>
+        <button class="delete" title="삭제" aria-label="삭제">×</button>
+      </article>
+    </template>
+    <script src="popup.js"></script>
+  </body>
+</html>
