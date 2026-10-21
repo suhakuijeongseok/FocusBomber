@@ -180,8 +180,8 @@
       const sorted = visible
         .filter((item) => item.planeIndex === planeIndex && item.laneDistance <= .18)
         .sort((a, b) => a.progress - b.progress || a.laneDistance - b.laneDistance);
-      if (sorted.length <= 24) return sorted;
-      return Array.from({ length: 24 }, (__, index) => sorted[Math.floor(index * (sorted.length - 1) / 23)]);
+      if (sorted.length <= 40) return sorted;
+      return Array.from({ length: 40 }, (__, index) => sorted[Math.floor(index * (sorted.length - 1) / 39)]);
     });
     return lanes.flat().sort((a, b) => a.progress - b.progress);
   }
