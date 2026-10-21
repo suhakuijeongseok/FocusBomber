@@ -74,6 +74,7 @@ Focus Bomber는 사용자가 직접 선택한 웹사이트의 하루 이용시�
 
 - `store-assets/focus-bomber-settings-1280x800.png`: 설정 화면과 핵심 기능 설명
 - `store-assets/focus-bomber-raid-1280x800.png`: 실제 전투기 및 폭격 스타일
+- `store-assets/focus-bomber-promo-440x280.png`: 소형 프로모션 이미지
 
 ## 제출 전 수동 확인
 
