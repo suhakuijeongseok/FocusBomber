@@ -50,8 +50,8 @@ function playExplosion(tabId, final = false) {
   sessions.set(tabId, session);
   const path = final ? AUDIO.explosions[2] : AUDIO.explosions[explosionIndex++ % 2];
   const audio = pooledAudio(path);
-  audio.volume = final ? .58 : .22 + Math.random() * .13;
-  audio.playbackRate = final ? .92 : .93 + Math.random() * .16;
+  audio.volume = final ? 1 : .22 + Math.random() * .13;
+  audio.playbackRate = final ? .84 : .93 + Math.random() * .16;
   audio.play().catch(() => {});
 }
 

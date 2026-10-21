@@ -295,14 +295,19 @@
       ], { duration: 720, delay, easing: "steps(10,end)", fill: "forwards" });
       animation.onfinish = () => element.style.setProperty("visibility", "hidden", "important");
     });
-    return 1150;
+    return 2600;
   }
 
   function clearAndClose(stage) {
     sendAudio("complete");
     const flash = document.createElement("div");
     flash.className = "fb-screen-flash";
-    stage.append(flash);
+    const nukeFlash = document.createElement("div");
+    nukeFlash.className = "fb-nuke-flash";
+    const nuke = document.createElement("div");
+    nuke.className = "fb-nuke";
+    nuke.innerHTML = '<i class="fb-nuke-ring"></i><i class="fb-nuke-core"></i><i class="fb-nuke-column"></i><i class="fb-nuke-cap"></i><i class="fb-nuke-debris"></i>';
+    stage.append(flash, nukeFlash, nuke);
     const cleanupDuration = clearAllInteractiveElements();
     setTimeout(() => {
       document.documentElement.classList.add("fb-page-cleared");

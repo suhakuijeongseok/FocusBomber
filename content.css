@@ -13,6 +13,15 @@
 .fb-smoke { position:fixed; z-index:2147483646; width:11px; height:11px; background:#4e4d50; box-shadow:8px 0 #303238,-8px 8px #69615a; animation:fb-smoke 1.2s steps(6,end) forwards; }
 .fb-fragment { display:inline-block; white-space:pre; will-change:transform,opacity,filter; }
 .fb-screen-flash { position:absolute; inset:0; background:#fff2a3; mix-blend-mode:screen; animation:fb-flash .18s steps(2,end) forwards; }
+.fb-nuke { position:absolute; z-index:3; left:50%; top:54%; width:24px; height:24px; transform:translate(-50%,-50%); }
+.fb-nuke-flash { position:absolute; z-index:2; inset:0; background:#fffbea; opacity:0; animation:fb-nuke-flash 1.15s steps(7,end) forwards; }
+.fb-nuke-core { position:absolute; left:50%; top:50%; width:32px; height:32px; transform:translate(-50%,-50%) scale(.1); background:#fffbd0; box-shadow:0 0 0 16px #ffe65b,0 0 0 36px #ff9f21,0 0 0 60px #f04420,0 0 0 86px #80221c; animation:fb-nuke-core 1.25s steps(10,end) forwards; }
+.fb-nuke-ring,.fb-nuke-ring::before { position:absolute; left:50%; top:50%; width:80px; height:28px; border:10px solid #ffd84a; transform:translate(-50%,-50%) scale(.1); content:""; }
+.fb-nuke-ring { animation:fb-nuke-ring 1.15s steps(12,end) .12s forwards; }
+.fb-nuke-ring::before { width:120px; height:42px; border-color:#f36b22; animation:fb-nuke-ring-inner 1.2s steps(12,end) .08s forwards; }
+.fb-nuke-column { position:absolute; left:50%; top:-186px; width:54px; height:210px; transform:translateX(-50%) scaleY(.05); transform-origin:50% 100%; background:linear-gradient(90deg,#64201b 0 18%,#f05a22 18% 38%,#ffd34b 38% 62%,#f05a22 62% 82%,#64201b 82%); box-shadow:-18px 0 #31242a,18px 0 #31242a; animation:fb-nuke-column 1.5s steps(12,end) .35s forwards; }
+.fb-nuke-cap { position:absolute; left:50%; top:-292px; width:320px; height:135px; transform:translateX(-50%) scale(.05); background:#ed4b20; box-shadow:-55px 18px #76241d,55px 18px #76241d,-105px 48px #3c292b,105px 48px #3c292b,0 -35px #ffb72d,0 -62px #ffe264; animation:fb-nuke-cap 1.75s steps(14,end) .58s forwards; }
+.fb-nuke-debris { position:absolute; left:50%; top:50%; width:9px; height:9px; background:#ffd94d; box-shadow:-210px -80px #f04420,230px -55px #f69b25,-280px 35px #8b2920,290px 70px #ffcf3d,-145px -175px #fff0a2,165px -190px #e74720,-330px -110px #5e2825,350px -135px #f56a21; transform:translate(-50%,-50%) scale(.1); animation:fb-nuke-debris 1.45s steps(12,end) .2s forwards; }
 .fb-curtain { position:absolute; z-index:4; inset:0; transform:scaleY(0); transform-origin:bottom; background:repeating-linear-gradient(0deg,#090b0f 0 8px,#11151b 8px 16px); animation:fb-curtain .75s steps(10,end) forwards; }
 .fb-complete { position:absolute; z-index:5; top:50%; left:50%; transform:translate(-50%,-50%); width:max-content; padding:14px 20px; border:4px solid #d69228; color:#ffd761; background:#101319; box-shadow:8px 8px 0 #000; font:900 18px/1 ui-monospace,Consolas,monospace; letter-spacing:.12em; opacity:0; animation:fb-complete .25s steps(2,end) .75s forwards; }
 html.fb-page-cleared,html.fb-page-cleared body { background:#090b0f !important; }
@@ -24,5 +33,12 @@ html.fb-page-cleared body::before,html.fb-page-cleared body::after { display:non
 @keyframes fb-burst { 0% { transform:translate(-50%,-50%) scale(.25); } 45% { transform:translate(-50%,-50%) scale(1.5); filter:brightness(1.4); } 100% { transform:translate(-50%,-50%) scale(2.4); opacity:0; } }
 @keyframes fb-smoke { 0% { transform:translate(-50%,-50%) scale(.5); opacity:.9; } 100% { transform:translate(-50%,-110px) scale(2.2); opacity:0; } }
 @keyframes fb-flash { 100% { opacity:0; } }
+@keyframes fb-nuke-flash { 0% { opacity:0; } 8% { opacity:1; } 34% { opacity:.92; } 100% { opacity:0; } }
+@keyframes fb-nuke-core { 0% { transform:translate(-50%,-50%) scale(.1); opacity:1; } 55% { transform:translate(-50%,-50%) scale(2.8); opacity:1; } 100% { transform:translate(-50%,-50%) scale(5.2); opacity:0; } }
+@keyframes fb-nuke-ring { 0% { transform:translate(-50%,-50%) scale(.1); opacity:1; } 100% { transform:translate(-50%,-50%) scale(12); opacity:0; } }
+@keyframes fb-nuke-ring-inner { 0% { transform:translate(-50%,-50%) scale(.1); opacity:1; } 100% { transform:translate(-50%,-50%) scale(8); opacity:0; } }
+@keyframes fb-nuke-column { 0% { transform:translateX(-50%) scaleY(.05); opacity:0; } 18% { opacity:1; } 100% { transform:translateX(-50%) scaleY(1); opacity:.95; } }
+@keyframes fb-nuke-cap { 0% { transform:translateX(-50%) scale(.05); opacity:0; } 20% { opacity:1; } 100% { transform:translateX(-50%) scale(1); opacity:.95; } }
+@keyframes fb-nuke-debris { 0% { transform:translate(-50%,-50%) scale(.1); opacity:1; } 100% { transform:translate(-50%,-50%) scale(1.4); opacity:0; } }
 @keyframes fb-curtain { to { transform:scaleY(1); } }
 @keyframes fb-complete { to { opacity:1; } }
