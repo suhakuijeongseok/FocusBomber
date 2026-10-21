@@ -37,3 +37,7 @@ h2 { font-size: 13px; }
 .switch span::after { content:""; position:absolute; top:3px; left:3px; width:14px; height:14px; border-radius:50%; background:#c8beb4; transition:.2s; }
 .switch input:checked + span { background:#ffb000; }
 .switch input:checked + span::after { transform:translateX(14px); background:#1b1309; }
+.credits { display:grid; gap:4px; margin-top:16px; padding-top:12px; border-top:1px solid #332a23; font-size:10px; line-height:1.4; }
+.credits strong { color:#8f857b; }
+.credits a { color:#b6a58e; text-decoration:none; }
+.credits a:hover { color:#ffbd25; text-decoration:underline; }

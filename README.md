@@ -54,7 +54,13 @@
 - Explosions: `dragon-studio-loud-explosion-425457.mp3`
 - Final explosion: `soundreality-explosion-fx-343683.mp3`
 
-공개 배포 전 각 음원의 원본 라이선스와 필요한 저작자 표시 조건을 다시 확인하세요.
+효과음 출처 표기:
+
+- [무료 효과음 시작가 kr.pikbest.com](https://kr.pikbest.com/free-sound-effects/%ED%8F%AD%ED%83%84.html)
+- [무료 폭탄 효과음 시작가 kr.pikbest.com](https://kr.pikbest.com/sound-effects/deafening-war-bomb-explosion_226020.html)
+- [무료 폭탄 효과음 시작가 kr.pikbest.com](https://kr.pikbest.com/sound-effects/terrorist-battle-bomb-explosion_226021.html)
+
+공개 배포 전 각 음원의 원본 라이선스와 재배포 조건도 다시 확인하세요.
 
 ## 개인정보 보호
 

@@ -23,6 +23,12 @@ Focus Bomber는 사용자가 직접 선택한 웹사이트의 하루 이용시�
 
 모든 설정과 사용 기록은 브라우저 로컬 저장소에만 저장되며 외부 서버로 전송되지 않습니다.
 
+효과음 출처:
+
+- [무료 효과음 시작가 kr.pikbest.com](https://kr.pikbest.com/free-sound-effects/%ED%8F%AD%ED%83%84.html)
+- [무료 폭탄 효과음 시작가 kr.pikbest.com](https://kr.pikbest.com/sound-effects/deafening-war-bomb-explosion_226020.html)
+- [무료 폭탄 효과음 시작가 kr.pikbest.com](https://kr.pikbest.com/sound-effects/terrorist-battle-bomb-explosion_226021.html)
+
 ## 단일 목적
 
 사용자가 선택한 웹사이트의 하루 이용시간을 측정하고, 설정한 시간이 끝나면 시청각 차단 효과와 탭 종료를 통해 사용 제한을 실행합니다.
@@ -62,6 +68,6 @@ Focus Bomber는 사용자가 직접 선택한 웹사이트의 하루 이용시�
 
 - 지원 이메일과 개인정보처리방침의 문의 수단 입력
 - 스토어 아이콘 및 실제 작동 화면 스크린샷 업로드
-- 모든 효과음의 원본 URL, 라이선스, 저작자 표시 조건 확인
+- 모든 효과음의 라이선스와 확장 프로그램 내 재배포 허용 여부 확인
 - 항공기 스프라이트 제작자에게 사용 사실 통지
 - 자동 탭 종료와 미저장 데이터 유실 가능성을 상세 설명에 유지
