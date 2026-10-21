@@ -29,6 +29,22 @@ async function loadState() {
   return chrome.storage.local.get({ [RULES_KEY]: [], [USAGE_KEY]: {}, [BLOCKED_KEY]: {} });
 }
 
+async function ensureCurrentTabIsRunning() {
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  if (!tab?.id || !tab.url?.startsWith("http")) return;
+  try {
+    const [{ result: alreadyRunning }] = await chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      func: () => Boolean(window.__focusBomberLoaded)
+    });
+    if (alreadyRunning) return;
+    await chrome.scripting.insertCSS({ target: { tabId: tab.id }, files: ["content.css"] });
+    await chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ["content.js"] });
+  } catch {
+    // Restricted browser pages cannot receive content scripts.
+  }
+}
+
 async function render() {
   const state = await loadState();
   const root = $("#rules");
@@ -81,6 +97,7 @@ $("#rule-form").addEventListener("submit", async (event) => {
     state[RULES_KEY].push({ id: crypto.randomUUID(), pattern, limitSeconds: Math.round(minutes * 60), enabled: true });
   }
   await chrome.storage.local.set({ [RULES_KEY]: state[RULES_KEY], [BLOCKED_KEY]: state[BLOCKED_KEY] });
+  await ensureCurrentTabIsRunning();
   $("#site").value = pattern;
   render();
 });
