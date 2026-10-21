@@ -7,7 +7,7 @@
 1. Chrome에서 `chrome://extensions`, Edge에서 `edge://extensions`를 엽니다.
 2. **개발자 모드**를 켭니다.
 3. **압축해제된 확장 프로그램을 로드합니다**를 누릅니다.
-4. 이 `bombarding_website` 폴더를 선택합니다.
+4. 이 `FocusBomber` 폴더를 선택합니다.
 
 ## 사용
 
@@ -55,3 +55,15 @@
 - Final explosion: `soundreality-explosion-fx-343683.mp3`
 
 공개 배포 전 각 음원의 원본 라이선스와 필요한 저작자 표시 조건을 다시 확인하세요.
+
+## 개인정보 보호
+
+Focus Bomber는 설정한 사이트, 제한시간, 당일 사용시간 및 차단 상태를 `chrome.storage.local`에만 저장합니다. 별도의 서버로 전송하지 않으며 광고, 분석 및 추적 SDK를 사용하지 않습니다. 자세한 내용은 [PRIVACY.md](PRIVACY.md)를 확인하세요.
+
+## Chrome 웹스토어 배포
+
+제출 문안과 권한 설명은 [STORE_LISTING.md](STORE_LISTING.md)에 정리되어 있습니다. 배포 ZIP은 PowerShell에서 다음 명령으로 생성합니다.
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\package-release.ps1
+```
