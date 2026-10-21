@@ -28,7 +28,7 @@ function startEngine(tabId) {
   stopSession(tabId);
   const engine = new Audio(chrome.runtime.getURL(AUDIO.engine));
   engine.loop = true;
-  engine.volume = .34;
+  engine.volume = .55;
   engine.play().catch(() => {});
   sessions.set(tabId, { engine, lastImpact: 0 });
 }
