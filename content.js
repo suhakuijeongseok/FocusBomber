@@ -13,6 +13,7 @@
   const keyFor = (id) => `${today()}:${id}`;
   const isActive = () => document.visibilityState === "visible" && document.hasFocus();
   const sendAudio = (action) => chrome.runtime.sendMessage({ type: "focus-bomber-audio", action }).catch(() => {});
+  const INTERACTIVE_SELECTOR = 'a[href],button,input,select,textarea,summary,details,[role="button"],[role="link"],[role="menuitem"],[role="checkbox"],[role="radio"],[role="switch"],[role="tab"],[contenteditable="true"],[tabindex]:not([tabindex="-1"]),audio[controls],video[controls]';
   let rule = null;
   let usedSeconds = 0;
   let tickCount = 0;
@@ -131,17 +132,19 @@
   function restoreStaleAttackState() {
     document.documentElement.classList.remove("fb-page-cleared");
     document.querySelectorAll("#focus-bomber-stage,.fb-pixel-bomb,.fb-pixel-burst,.fb-particle,.fb-smoke").forEach((element) => element.remove());
-    const possibleTargets = document.querySelectorAll('.fb-fragment,a,button,input,select,textarea,[role="button"],img,picture,video,canvas,iframe');
+    const possibleTargets = document.querySelectorAll(`.fb-fragment,${INTERACTIVE_SELECTOR},img,picture,video,canvas,iframe`);
     possibleTargets.forEach((element) => {
-      const hiddenByBomber = element.dataset.focusBomberHit === "1" ||
+      const hiddenByBomber = element.dataset.focusBomberHit === "1" || element.dataset.focusBomberCleanup === "1" ||
         (element.style.getPropertyValue("visibility") === "hidden" && element.style.getPropertyPriority("visibility") === "important");
       if (!hiddenByBomber) return;
       element.getAnimations().forEach((animation) => animation.cancel());
       element.style.removeProperty("visibility");
+      element.style.removeProperty("pointer-events");
       element.style.removeProperty("--fb-x");
       element.style.removeProperty("--fb-y");
       element.style.removeProperty("--fb-r");
       delete element.dataset.focusBomberHit;
+      delete element.dataset.focusBomberCleanup;
     });
   }
 
@@ -268,24 +271,55 @@
     }, delay);
   }
 
+  function clearAllInteractiveElements() {
+    const elements = [...new Set(document.querySelectorAll(INTERACTIVE_SELECTOR))]
+      .filter((element) => !element.closest("#focus-bomber-stage,#focus-bomber-hud"));
+    let animatedIndex = 0;
+    elements.forEach((element) => {
+      element.dataset.focusBomberCleanup = "1";
+      element.style.setProperty("pointer-events", "none", "important");
+      const rect = element.getBoundingClientRect();
+      const style = getComputedStyle(element);
+      const visible = rect.width > 1 && rect.height > 1 && rect.bottom > 0 && rect.right > 0 && rect.top < innerHeight && rect.left < innerWidth && style.visibility !== "hidden" && style.display !== "none";
+      if (!visible) {
+        element.style.setProperty("visibility", "hidden", "important");
+        return;
+      }
+      const direction = animatedIndex % 2 === 0 ? -1 : 1;
+      const delay = (animatedIndex % 32) * 12;
+      animatedIndex += 1;
+      const animation = element.animate([
+        { transform: "translate(0,0) rotate(0) scale(1)", opacity: 1, filter: "none" },
+        { transform: `translate(${direction * 18}px,-10px) rotate(${direction * 4}deg) scale(1.04)`, opacity: 1, filter: "brightness(1.8) saturate(1.7)", offset: .18 },
+        { transform: `translate(${direction * (140 + Math.random() * 220)}px,${-90 - Math.random() * 230}px) rotate(${direction * (45 + Math.random() * 100)}deg) scale(.12)`, opacity: 0, filter: "contrast(2) blur(2px)" }
+      ], { duration: 720, delay, easing: "steps(10,end)", fill: "forwards" });
+      animation.onfinish = () => element.style.setProperty("visibility", "hidden", "important");
+    });
+    return 1150;
+  }
+
   function clearAndClose(stage) {
     sendAudio("complete");
-    document.documentElement.classList.add("fb-page-cleared");
     const flash = document.createElement("div");
     flash.className = "fb-screen-flash";
-    const curtain = document.createElement("div");
-    curtain.className = "fb-curtain";
-    const complete = document.createElement("div");
-    complete.className = "fb-complete";
-    complete.textContent = "MISSION COMPLETE · TAB CLOSING IN 5";
-    stage.append(flash, curtain, complete);
-    let remaining = 5;
-    const countdown = setInterval(() => {
-      remaining -= 1;
-      if (remaining > 0) complete.textContent = `MISSION COMPLETE · TAB CLOSING IN ${remaining}`;
-      else clearInterval(countdown);
-    }, 1000);
-    setTimeout(() => chrome.runtime.sendMessage({ type: "focus-bomber-close-tab" }), 5200);
+    stage.append(flash);
+    const cleanupDuration = clearAllInteractiveElements();
+    setTimeout(() => {
+      document.documentElement.classList.add("fb-page-cleared");
+      const curtain = document.createElement("div");
+      curtain.className = "fb-curtain";
+      const complete = document.createElement("div");
+      complete.className = "fb-complete";
+      complete.textContent = "MISSION COMPLETE · TAB CLOSING IN 5";
+      stage.append(curtain, complete);
+      let remaining = 5;
+      const countdown = setInterval(() => {
+        remaining -= 1;
+        if (remaining > 0) complete.textContent = `MISSION COMPLETE · TAB CLOSING IN ${remaining}`;
+        else clearInterval(countdown);
+      }, 1000);
+      setTimeout(() => chrome.runtime.sendMessage({ type: "focus-bomber-close-tab" }), 5200);
+    }, cleanupDuration);
   }
 
   function launchAttack() {
