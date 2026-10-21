@@ -30,6 +30,11 @@ Focus Bomber는 사용자가 직접 선택한 웹사이트의 하루 이용시�
 - [Loud Explosion — DRAGON-STUDIO / Pixabay](https://pixabay.com/sound-effects/film-special-effects-loud-explosion-425457/)
 - [Pixabay Content License](https://pixabay.com/service/license-summary/)
 
+항공기 스프라이트 크레딧:
+
+- Original aircraft artwork by Mark Simpson (Prinz Eugn). Used and modified with credit to the original artist.
+- [Prinz Eugn on DeviantArt](http://prinzeugn.deviantart.com/)
+
 ## 단일 목적
 
 사용자가 선택한 웹사이트의 하루 이용시간을 측정하고, 설정한 시간이 끝나면 시청각 차단 효과와 탭 종료를 통해 사용 제한을 실행합니다.
@@ -57,7 +62,7 @@ Focus Bomber는 사용자가 직접 선택한 웹사이트의 하루 이용시�
 - 웹 기록에 해당할 수 있는 사이트 도메인과 사용시간을 기능 제공 목적으로 로컬 처리합니다.
 - 페이지 DOM은 애니메이션 대상 탐색을 위해 일시적으로 처리하며 저장하거나 전송하지 않습니다.
 - 광고, 분석, 추적, 데이터 판매 및 제3자 공유를 하지 않습니다.
-- 개인정보처리방침 URL에는 공개된 `PRIVACY.md` 웹페이지 주소를 입력합니다.
+- 개인정보처리방침 URL에는 `https://suhakuijeongseok.github.io/FocusBomber/privacy.html`을 입력합니다.
 
 ## 카테고리 및 공개 범위
 
@@ -65,10 +70,15 @@ Focus Bomber는 사용자가 직접 선택한 웹사이트의 하루 이용시�
 - 첫 심사 권장 공개 범위: 미등록
 - 내부 확인 후 공개로 변경
 
+## 준비된 스토어 이미지
+
+- `store-assets/focus-bomber-settings-1280x800.png`: 설정 화면과 핵심 기능 설명
+- `store-assets/focus-bomber-raid-1280x800.png`: 실제 전투기 및 폭격 스타일
+
 ## 제출 전 수동 확인
 
-- 지원 이메일과 개인정보처리방침의 문의 수단 입력
+- Chrome 웹스토어 개발자 대시보드에 지원 이메일 입력
 - 스토어 아이콘 및 실제 작동 화면 스크린샷 업로드
 - 효과음 라이선스 증빙을 로컬에 보관
-- 항공기 스프라이트 제작자에게 사용 사실 통지
+- GitHub Pages를 활성화해 개인정보처리방침 URL 공개
 - 자동 탭 종료와 미저장 데이터 유실 가능성을 상세 설명에 유지

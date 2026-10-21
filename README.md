@@ -73,3 +73,5 @@ Focus Bomber는 설정한 사이트, 제한시간, 당일 사용시간 및 차�
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\package-release.ps1
 ```
+
+개인정보처리방침 웹페이지 원본은 `docs/privacy.html`, 웹스토어용 1280×800 이미지는 `store-assets/`에 있습니다.

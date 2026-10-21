@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Focus Bomber — 픽셀 폭격 애니메이션</title>
+    <link rel="stylesheet" href="../content.css">
+    <style>
+      * { box-sizing:border-box; }
+      body { margin:0; width:1280px; height:800px; overflow:hidden; color:#17202b; background:#eef1f5; font-family:system-ui,sans-serif; }
+      nav { display:flex; align-items:center; justify-content:space-between; padding:20px 62px; color:#fff; background:#263246; }
+      nav strong { font-size:22px; } nav span { color:#b9c5d6; }
+      main { width:1060px; margin:48px auto; }
+      h1 { font-size:44px; margin:0 0 18px; }
+      .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+      .card { min-height:170px; padding:24px; border-radius:16px; background:#fff; box-shadow:0 8px 28px #1f2d3d20; }
+      .card h2 { margin:0 0 12px; } .card p { color:#607085; line-height:1.6; }
+      #focus-bomber-warning { top:26px; }
+      .fb-plane { left:auto; bottom:auto; width:168px; animation:none; transform:rotate(58deg); }
+      .p1 { left:100px; top:560px; }.p2 { left:310px; top:440px; }.p3 { left:520px; top:320px; }.p4 { left:730px; top:200px; }.p5 { left:940px; top:80px; }
+      .fb-pixel-bomb { position:absolute; }.b1 { left:280px; top:570px; }.b2 { left:500px; top:455px; }.b3 { left:710px; top:338px; }.b4 { left:920px; top:218px; }
+      .fb-pixel-burst { position:absolute; animation:none; transform:translate(-50%,-50%) scale(1.7); }.x1 { left:402px; top:650px; }.x2 { left:620px; top:530px; }.x3 { left:830px; top:410px; }.x4 { left:1045px; top:290px; }
+    </style>
+  </head>
+  <body>
+    <nav><strong>오늘의 집중 리포트</strong><span>남은 집중 시간 · 00:00</span></nav>
+    <main><h1>프로젝트 대시보드</h1><div class="cards"><article class="card"><h2>진행 중</h2><p>중요한 작업에 집중할 시간입니다.</p></article><article class="card"><h2>할 일</h2><p>계획한 일정을 차례로 완료하세요.</p></article><article class="card"><h2>오늘의 기록</h2><p>집중 세션과 휴식 시간을 확인합니다.</p></article></div></main>
+    <div id="focus-bomber-stage">
+      <div id="focus-bomber-warning">TIME OVER · FORMATION AIR RAID</div>
+      <div id="focus-bomber-formation">
+        <div class="fb-plane p1"><img src="../assets/aircraft-fighter.png" alt=""></div><div class="fb-plane p2"><img src="../assets/aircraft-fighter.png" alt=""></div><div class="fb-plane p3"><img src="../assets/aircraft-fighter.png" alt=""></div><div class="fb-plane p4"><img src="../assets/aircraft-fighter.png" alt=""></div><div class="fb-plane p5"><img src="../assets/aircraft-fighter.png" alt=""></div>
+        <i class="fb-pixel-bomb b1"></i><i class="fb-pixel-bomb b2"></i><i class="fb-pixel-bomb b3"></i><i class="fb-pixel-bomb b4"></i>
+        <i class="fb-pixel-burst x1"></i><i class="fb-pixel-burst x2"></i><i class="fb-pixel-burst x3"></i><i class="fb-pixel-burst x4"></i>
+      </div>
+    </div>
+  </body>
+</html>

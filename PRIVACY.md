@@ -31,6 +31,6 @@ Focus Bomber는 서버를 운영하지 않으며 저장된 설정, 사용 기록
 
 ## 문의
 
-개인정보 관련 문의는 Chrome 웹스토어에 표시된 개발자 지원 이메일로 연락할 수 있습니다.
+개인정보 관련 문의는 [Focus Bomber GitHub Issues](https://github.com/suhakuijeongseok/FocusBomber/issues)를 이용하거나 Chrome 웹스토어에 표시된 개발자 지원 이메일로 연락할 수 있습니다.
 
 이 정책이 변경되면 이 문서의 최종 수정일을 갱신합니다.
