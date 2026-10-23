@@ -3,16 +3,32 @@
 지정한 사이트의 하루 누적 사용시간이 제한을 넘으면, 폭격기가 나타나 현재 페이지의 실제 DOM 텍스트와 상호작용 요소를 폭격 애니메이션으로 날려버리는 Chrome/Edge 확장 프로그램입니다.
 
 ## 설치
-<Chrome Extension으로 사용>
 
-Focus Bomber가 Chrome 웹스토어에 출시되었습니다!
-`https://chromewebstore.google.com/detail/focus-bomber/opghmghlndghdohadhakgnppflbjikej?hl=ko&utm_source=ext_sidebar`에서 다운받을 수 있습니다.
+# Focus Bomber
 
-<Github에서 파일을 다운받아 사용>
-1. Chrome에서 `chrome://extensions`, Edge에서 `edge://extensions`를 엽니다.
-2. **개발자 모드**를 켭니다.
-3. **압축해제된 확장 프로그램을 로드합니다**를 누릅니다.
-4. 이 `bombarding_website` 폴더를 선택합니다.
+웹사이트 이용을 관리하는 Chrome 확장 프로그램입니다.
+
+## 설치 방법
+
+### 방법 1. Chrome 웹스토어에서 설치
+
+[**Focus Bomber 설치하기**](https://chromewebstore.google.com/detail/focus-bomber/opghmghlndghdohadhakgnppflbjikej?hl=ko&utm_source=ext_sidebar)
+
+링크를 클릭한 뒤 Chrome에 확장 프로그램을 추가합니다.
+
+### 방법 2. GitHub에서 직접 설치
+
+1. GitHub 저장소에서 프로젝트 파일을 다운로드한 뒤 압축을 해제합니다.
+2. Chrome 주소창에 `chrome://extensions`를 입력해 접속합니다.
+   - Edge를 사용하는 경우 `edge://extensions`에 접속합니다.
+3. **개발자 모드**를 활성화합니다.
+4. **압축해제된 확장 프로그램을 로드합니다** 버튼을 클릭합니다.
+5. 다운로드한 프로젝트에서 `bombarding_website` 폴더를 선택합니다.
+
+## 사용 방법
+
+확장 프로그램을 설치한 후 브라우저에서 Focus Bomber를 실행하여 사용합니다.
+
 
 ## 사용
 
