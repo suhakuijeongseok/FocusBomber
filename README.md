@@ -4,6 +4,7 @@
 
 ## 설치
 <Chrome Extension으로 사용>
+
 Focus Bomber가 Chrome 웹스토어에 출시되었습니다!
 `https://chromewebstore.google.com/detail/focus-bomber/opghmghlndghdohadhakgnppflbjikej?hl=ko&utm_source=ext_sidebar`에서 다운받을 수 있습니다.
 
