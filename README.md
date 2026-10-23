@@ -3,7 +3,11 @@
 지정한 사이트의 하루 누적 사용시간이 제한을 넘으면, 폭격기가 나타나 현재 페이지의 실제 DOM 텍스트와 상호작용 요소를 폭격 애니메이션으로 날려버리는 Chrome/Edge 확장 프로그램입니다.
 
 ## 설치
+<Chrome Extension으로 사용>
+Focus Bomber가 Chrome 웹스토어에 출시되었습니다!
+`https://chromewebstore.google.com/detail/focus-bomber/opghmghlndghdohadhakgnppflbjikej?hl=ko&utm_source=ext_sidebar`에서 다운받을 수 있습니다.
 
+<Github에서 파일을 다운받아 사용>
 1. Chrome에서 `chrome://extensions`, Edge에서 `edge://extensions`를 엽니다.
 2. **개발자 모드**를 켭니다.
 3. **압축해제된 확장 프로그램을 로드합니다**를 누릅니다.
